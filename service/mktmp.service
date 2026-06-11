@@ -1,0 +1,11 @@
+[Unit]
+Description=Make Tmp for cai
+
+[Service]
+Type=simple
+User=cai
+Group=users
+ExecStart=/usr/bin/mkdir -p /tmp/cai/
+
+[Install]
+WantedBy=multi-user.target

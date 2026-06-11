@@ -1,0 +1,23 @@
+{
+
+    "link_map": {
+        "bin": "~/.local/bin",
+        "service": "~/.config/systemd/user"
+    },
+    "bin": {
+        "fan_modify.sh": "fan",
+        "marktext_fd_find.sh": "mt",
+        "marktext_fzf_find.sh": "mf",
+        "pyhttp-serve.sh": "pyhttp",
+        "wt": "wt",
+        "wt-install.sh": "wti",
+        "wt-mv.sh": "wt-mv",
+        "wt-rm.sh": "wt-rm",
+        "wt-tag.sh": "wt-tag"
+
+    },
+    "service": {
+        "clash.service": "clash.service",
+        "mktmp.service": "mktmp.service"
+    }
+}
