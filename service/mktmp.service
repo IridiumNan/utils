@@ -1,11 +1,14 @@
 [Unit]
 Description=Make Tmp for cai
+After=systemd.mount
 
 [Service]
-Type=simple
+Type=oneshot
+RemainAfterExit=yes
 User=cai
 Group=users
-ExecStart=/usr/bin/mkdir -p /tmp/cai/
+ExecStart=/home/cai/.local/bin/mktmp
+
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

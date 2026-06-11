@@ -13,8 +13,9 @@
         "wt-install.sh": "wti",
         "wt-mv.sh": "wt-mv",
         "wt-rm.sh": "wt-rm",
-        "wt-tag.sh": "wt-tag"
-
+        "wt-tag.sh": "wt-tag",
+        "clash.sh": "clash",
+        "mktmp.sh": "mktmp"
     },
     "service": {
         "clash.service": "clash.service",
