@@ -48,5 +48,15 @@ def install():
             mkSingleLink(dir, name, config["link_map"][dir])
 
 
+def mkDir():
+    for dir in config["link_map"].values():
+        try:
+            dir = dir.replace("~", Path.home().__str__())
+            os.mkdir(dir)
+        except FileExistsError:
+            pass
+
+
 if __name__ == "__main__":
+    mkDir()
     install()
