@@ -15,10 +15,10 @@
         "wt-rm.sh": "wt-rm",
         "wt-tag.sh": "wt-tag",
         "clash.sh": "clash",
-        "mktmp.sh": "mktmp"
+        "tmp-guard.py": "tg"
     },
     "service": {
         "clash.service": "clash.service",
-        "mktmp.service": "mktmp.service"
+        "tmp-guard.service": "tmp-guard.service"
     }
 }

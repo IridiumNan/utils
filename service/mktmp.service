@@ -5,8 +5,8 @@ After=systemd.mount
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-User=cai
-Group=users
+User=$USER
+Group=$(id -gn)
 ExecStart=/home/cai/.local/bin/mktmp
 
 

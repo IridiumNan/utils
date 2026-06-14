@@ -1,0 +1,13 @@
+[Unit]
+Description=tmp-guard real-time sync for ~/tmp
+After=default.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/tg serve
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
+
