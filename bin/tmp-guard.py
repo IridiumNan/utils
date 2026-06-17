@@ -34,7 +34,7 @@ CURR_DIR = SNAP_DIR / "curr"
 # Default directory permission
 DIR_MODE = 0o755
 # Background service polling interval (seconds)
-SERVE_SLEEP_INTERVAL = 1
+SERVE_SLEEP_INTERVAL = 10
 # Buffer time to wait for data flush before service exit (seconds)
 EXIT_WAIT_SECONDS = 2
 
@@ -295,6 +295,7 @@ def serve() -> None:
         time.sleep(EXIT_WAIT_SECONDS)
         sys.exit(0)
 
+
 def print_help(lang: str = "en") -> None:
     """Print command help information in the specified language."""
     help_en = """
@@ -417,6 +418,7 @@ TG - TMP-GUARD  v0.1
   • 不要将需要跨多个开机周期保留的文件长期存放在 ~/tmp 中。
 """
     print(help_en if lang.startswith("en") else help_cn)
+
 
 def print_daemon_file(lang: str = "en") -> None:
     """Print systemd user service template with instructions."""
