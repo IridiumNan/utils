@@ -16,7 +16,8 @@
         "wt-tag.sh": "wt-tag",
         "clash.sh": "clash",
         "tmp-guard.py": "tg",
-        "public.sh": "public"
+        "public.sh": "public",
+        "snap-packages-archlinux.sh": "sp"
     },
     "service": {
         "clash.service": "clash.service",
