@@ -276,7 +276,8 @@ def use_handler(src_path: Path, dst_path: Path) -> None:
     logger.info(f"File archived to: {dst_path}")
     try:
         # Zero-cost archiving via hard link, no extra disk space usage
-        dst_path.hardlink_to(src_path)
+        # dst_path.hardlink_to(src_path)
+        src_path.copy(dst_path)
     except OSError as e:
         logger.error(f"Failed to create hard link: {e}")
 
