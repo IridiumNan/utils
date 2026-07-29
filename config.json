@@ -1,5 +1,4 @@
 {
-
     "link_map": {
         "bin": "~/.local/bin",
         "service": "~/.config/systemd/user"
@@ -17,7 +16,8 @@
         "clash.sh": "clash",
         "tmp-guard.py": "tg",
         "public.sh": "public",
-        "snap-packages-archlinux.sh": "sp"
+        "snap-packages-archlinux.sh": "sp",
+        "LocalSend-1.17.0-linux-x86-64.AppImage": "localsend"
     },
     "service": {
         "clash.service": "clash.service",
