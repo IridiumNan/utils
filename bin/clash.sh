@@ -4,6 +4,8 @@ sleep 2
 echo "try to start clash"
 date
 
-./clash -d .
+cd ~/.clash/
+
+./clash -f ~/.clash/config.yaml
 
 echo "script exec ok"
