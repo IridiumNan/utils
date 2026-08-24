@@ -34,7 +34,7 @@ CURR_DIR = SNAP_DIR / "curr"
 # Default directory permission
 DIR_MODE = 0o755
 # Background service polling interval (seconds)
-SERVE_SLEEP_INTERVAL = 10
+SERVE_SLEEP_INTERVAL = 1
 # Buffer time to wait for data flush before service exit (seconds)
 EXIT_WAIT_SECONDS = 2
 
@@ -276,10 +276,18 @@ def use_handler(src_path: Path, dst_path: Path) -> None:
     logger.info(f"File archived to: {dst_path}")
     try:
         # Zero-cost archiving via hard link, no extra disk space usage
-        # dst_path.hardlink_to(src_path)
-        src_path.copy(dst_path)
+        dst_path.hardlink_to(src_path)
     except OSError as e:
         logger.error(f"Failed to create hard link: {e}")
+
+
+def cd_cache_dir() -> None:
+    shell = os.getenv("SHELL")
+    # exec the command: zsh -c "cd {SNAP_DIR} && zsh"
+    cmd = [shell, "-c", f"cd {LAST_DIR} && {shell}"]
+
+    print("enter the snap dir")
+    subprocess.run(cmd)
 
 
 def serve() -> None:
@@ -316,6 +324,9 @@ TG - TMP-GUARD  v0.1
   tg serve
         Start the background sync daemon (normally launched by systemd).
         Performs snapshot rollover, then watches ~/tmp for changes every second.
+
+  tg cd
+        Enter the snapshots dir for last
 
   tg list [curr]
         Show files that are waiting to be cleaned up.
@@ -376,6 +387,9 @@ TG - TMP-GUARD  v0.1
   tg serve
         启动后台实时同步服务（通常由 systemd 自动调用）。
         先执行快照轮换，然后每秒监控 ~/tmp 的变化并同步。
+
+  tg cd
+        进入存放 last 快照的目录
 
   tg list [curr]
         列出等待清理的文件。
@@ -528,6 +542,8 @@ def main(args: List[str]) -> None:
         last_use_handler(args[2], Path(args[3]))
     elif command == "config":
         print_daemon_file(lang)
+    elif command == "cd":
+        cd_cache_dir()
     else:
         # Show help for unknown commands
         print_help(lang)
