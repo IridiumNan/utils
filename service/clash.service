@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=cai
-Group=cai
+Group=users
 WorkingDirectory=%h/.clash
 ExecStart=%h/.local/bin/clash
 ExecReload=/bin/kill -HUP $MAINPID
